@@ -29,28 +29,4 @@
 
 ## 博客向导  🍀
 
-本博客由 [`Travis CI`](https://travis-ci.org/yalezhangk/blogs) 自动构建
-
-[目录](SUMMARY.md) : 
-
-```tree
-.
-├── Python   
-├── Database
-├── Algorithm     
-├── Git   
-│   └── git 
-├── WebFramework
-│   ├── Django
-│   ├── Flask
-│   └── Tornado
-├── Linux
-├── Docker  
-├── Computer     
-├── Network
-│   └── TCP/IP
-└── Tools
-```
-
-博客搭建指南 : [GitHub Pages&Gitbook&Travis CI持续构建博客](https://lyonyang.github.io/blogs/09-Linux/Git/GitHub%20Pages&Gitbook&Travis%20CI%E6%8C%81%E7%BB%AD%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2.html)
-
+本博客由 [`Docsify`](https://docsify.js.org/#/zh-cn/) 自动构建
