@@ -12,10 +12,17 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '',
-      repo: '',
-      // 加载 _sidebar.md
-      loadSidebar: true
+      el: '#app',
+      name: 'my_blog',
+      // nameLink: 'https://github.com/yalezhangk/zk_blog',
+      repo: 'https://github.com/yalezhangk/zk_blog',
+      // 导航栏
+      loadNavbar: true,
+      // 左侧目录，默认加载 _sidebar.md
+      loadSidebar: true,
+      subMaxLevel: 6,
+      // 封面
+      // coverpage: true,
 
       // 加载 summary.md
       // loadSidebar: 'summary.md'
