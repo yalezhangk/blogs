@@ -224,9 +224,20 @@ https://pypi.douban.com/simple/
 2. python3 -m pdb filename.py
 ## 7.2 远程调试
 1. 在远程代码处设置
+
 2. from remote_pdb import RemotePdb
+
 3. RemotePdb('192.168.103.140', 4444).set_trace()
+
 4. 调用接口，跑到此处时，
+
 5. 执行：**socat readline tcp:192.168.103.140:4444**
+
 6. 或者执行**telnet 192.168.103.140 4444**
-6. 即可进入pdb模式
+
+7. 即可进入pdb模式
+
+**这是加粗的文字**
+*这是倾斜的文字*`
+***这是斜体加粗的文字***
+~~这是加删除线的文字~~
