@@ -1,10 +1,11 @@
-<!-- docs/_sidebar.md -->
+<!-- docs/_sidebar.md 侧边目录栏配置文件-->
 
 * [介绍](README.md)
 * [目录](_sidebar.md)
 * [Python](Python/README.md)
-  * [Python基础](Python/Py基础.md)
-  * [Python基础2](Python/Python基础.md)
+  * [Python基础-1](Python/Python基础01.md)
+  * [Python基础-2](Python/Python基础02.md)
+  * [Python基础-3](Python/Python基础03.md)
 * [Database](Database/README.md)
   * [Mysql](Database/Mysql/mysql基础.md)
 * [Algorithm](Algorithm/README.md)

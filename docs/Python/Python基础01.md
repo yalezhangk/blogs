@@ -1,4 +1,5 @@
-[toc]
+
+# Python基础01
 
 # 一、换行符
 
@@ -8,75 +9,54 @@
 
 - Mac 系统中：每行结尾是 "<回车>"，即 "\r"。
 
-  
 
 # 二、运算符(and/or)
 
 ## 1. and/or
 
 1. **在python中：0、''、""、[]、()、{}、None、False为假；其它任何东西都为真，注意' '、" "为真**
-
 2. **and实例：从左到右扫描，返回第一个为假的表达式值，无假值则返回最后一个表达式值。**
 
-```shell
-```
-
->> 'a' and 'b'
-
+```python
+>>> 'a' and 'b'
 'b'
-
->> '' and 'b'
-
+>>> '' and 'b'
 ''
-
->> ' a' and 'b' and 'c '
-
+>>> ' a' and 'b' and 'c '
 'c '
-
-```
 ```
 
 3. **or实例：从左到右扫描，返回第一个为真的表达式值，无真值则返回最后一个表达式值**。
-
 4. **and or 没有先后级别;or有短路现象，即如果为真，后面的不执行**
 
-
-
-```
-```
-
+```python
 >> 'a' or 'b'
-
 'a'
-
 >> '' or 'b'
-
 'b'
-
 >> '' or "" or () or {}
-
 {}
+```
 
-** or短路现象 **
+5. ** or短路现象 **
 
+```python
 >>>False and 1 or 2=>False or 2=>2 
 
 >>>1 or 2 and False=>1（1为真之后，后面就不会判断了，直接返回1） 
 
 >>>(1 or 2 ) and False=>1 and False=>False
-
 ```
 
 ## 2. 算术运算符
 
 1. 有：**+(加) 、-(减)、*(乘)、/(除)、%(取模、取余)、**(幂)、//(取整除)**
-2. ![imagesss](https://note.youdao.com/yws/res/26474/F0D584DA38E14089B456101E450E0B22)
 
 **运算符执行顺序**
 
 1. 一般按照从左到右的顺序正常执行。
 
-2. **2 ** 2 > 1 的结果却为True**,这涉及到Python中的**链式对比**，上式等价于 2 ** 2 and 2 > 1 ,其结果为True
+2. **2 ** 2 > 1 的结果却为True, **这涉及到Python中的**链式对比**，上式等价于 2 ** 2 and 2 > 1 ,其结果为True
 
 # 三、循环
 
@@ -90,7 +70,7 @@
 
 2. **带有默认值的参数一定要位于参数列表的最后面**
 
-```
+```python
 
 def printinfo( name, age = 35 ):
 
@@ -108,13 +88,13 @@ printinfo( age=9,name="miki" )
 
 ```
 
-3. 函数内部变量定义并且赋值，该变量为局部变量;
+3. 函数内部变量定义并且赋值，该变量为**局部变量**;
 
-4. 在函数外部定义的变量，为全局变量；
+4. 在函数外部定义的变量，为**全局变量**；
 
 5. 函数内部使用变量名，局部变量名和全局变量名同名，优先使用局部变量;
 
-6. 在函数内部如果想要使用全局变量，使用global关键字声明;
+6. 在函数内部如果想要使用全局变量，使用**global关键字声明**;
 
 7. **全局变量在函数内部未声明的情况下，只能使用，不可修改值**
 
@@ -124,11 +104,11 @@ printinfo( age=9,name="miki" )
 
 1. 字符串本质是字符序列。Python的字符串是不可修改的。无法对原字符串进行修改，但是可以将字符串的一部分赋值到新字符串，来达到相同的修改效果。
 
-2. 只有+和*运算
+2. 只有**+**和**\***运算
 
 3. 提取用[],下标
 
-4. 切片[start:end:step], 左闭右开，下标
+4. 切片[starte:\end:step], 左闭右开，下标
 
 5. 字符串反转[::-1]
 
@@ -138,9 +118,7 @@ printinfo( age=9,name="miki" )
 
 2. **str.split('分隔符', 分割次数) 分割成若干字串组成的列表，默认全分割**
 
-3. **' '.join(li1), 以空格将列表组成为str，
-
-方法要求列表中的元素为字符串才可操作**
+3. **' '.join(li1), 以空格将列表组成为str，方法要求列表中的元素为字符串才可操作**
 
 3. str.find('a'), str.rfind('a')查找字串，第一次、最后一次出现的位置，返回位置（下标），若无，返回-1
 
@@ -152,9 +130,9 @@ printinfo( age=9,name="miki" )
 
 7. **str.splitlines()**, 返回str中的行列表，在行边界处中断。 通常用于有换行符n的切割，返回str列表
 
-```
+```python
 
-<!--字符串转列表-->
+# 字符串转列表
 
 str1 = '1,2,3,4'
 
@@ -162,7 +140,7 @@ li1 = str1.split(',', 2)
 
 # ['1','2','3,4']
 
-<!--列表转字符串-->
+# 列表转字符串
 
 # 此方法要求列表中的元素为字符串才可操作
 
@@ -172,9 +150,7 @@ s1 = '-'.join(li2)
 
 # '1-2-3-4'
 
-
-
-<!--字符串替换-->
+# 字符串替换
 
 s = "abadeag"
 
@@ -200,38 +176,27 @@ print(s1)
 
 
 
-```
-```
+```python
+>> name = '张可'
 
-<!--01-->
-
-name = '张可'
-
-print('He is {}'.format(name))
+>> print('He is {}'.format(name))
 
 He is 张可
-
-<!--02-->
-
 # 格式化数字
-
-print("{:.2f}".format(3.1415926));
+>> print("{:.2f}".format(3.1415926));
 
 3.14
 
-<!--f/F表达式-->
+# f/F表达式
 
-name = '张可'
+>> name = '张可'
 
-age = 12
+>> age = 12
 
-a = f'He is {name}, age is {age}'
+>> a = f'He is {name}, age is {age}'
 
 He is 张可, age is 12
-
 ```
-
-
 
 # 六、列表 list
 
@@ -259,31 +224,24 @@ He is 张可, age is 12
 
 10. **str.join(list)，将列表转化为字符串**，**list中的元素必须是str型的**
 
-```
-```
-
+```python
 list = ['aaa', 'bbb', 'ccc']
 
 str1 = ','.join(list)
 
 str2 = ';'.join(list)
 
---要求list中的元素必须是str--
+# 要求list中的元素必须是str
 
 print(str1)
-
+# aaa,bbb,ccc
 print(str2)
 
-# aaa,bbb,ccc
-
 # aaa;bbb;ccc
-
 li = [1,2,3]
 
 ## 会报错，无法转换
-
 str_error = ''.join(li)
-
 ```
 
 11. **list.sort()，对原列表升序排序;
@@ -292,19 +250,13 @@ sorted(list),则会生成一个新列表，升序**
 
 12. **sorted(元素，key, reverse),产生一个新列表**
 
-```
+```python
 
 >>> fruits = ['grape', 'raspberry', 'apple', 'banana']
-
 >>> sorted(fruits, key=len, reverse=True)
-
 ['raspberry', 'banana', 'grape', 'apple']
-
 >>> fruits
-
 ['grape', 'raspberry', 'apple', 'banana']
-
-
 
 ```
 
@@ -312,7 +264,7 @@ sorted(list),则会生成一个新列表，升序**
 
 13. **两个list求交集、并集、差集：可以将list转为set,效率更高**（注意list中不存在重复元素才可用set中转）
 
-```
+```python
 
 list1 = [1,2,3,4]
 
@@ -333,10 +285,6 @@ retB = list(set(list1).union(set(list2)))
 retC = list(set(list1).difference(set(list2)))
 
 等价于 retC = list(set(list1) - set(list2))
-
-
-
-```
 ```
 
 # 七、元组Tuple()
@@ -347,20 +295,12 @@ retC = list(set(list1).difference(set(list2)))
 
 3. 访问元组中的元素,通过下标：tuple[0]
 
-```
-
+```python
 tup1 = ('physics', 'chemistry', 1997, 2000)
-
 tup2 = (1, 2, 3, 4, 5, 6, 7 )
-
- 
-
 print "tup1[0]: ", tup1[0]
-
 print "tup2[1:5]: ", tup2[1:5]
-
 ```
-
 
 
 # 八、字典dict{}
@@ -377,20 +317,13 @@ d = {key: value for (key, value) in dict.items()}**
 
 更新dict1(dict2中的元素更新到dict1中)，以dict2为准**
 
-```
-
+```python
 dict1 = {'name': 'zk', 'age': 18}
-
 dict2 = {'name': 'zk', 'age': 19}
-
 dict1.update(dict2)
-
 print(dict1)
-
 # {'name': 'zk', 'age': 19}
-
 ```
-
 2. dict.keys()获取所有键 > ['a', 'b', 'c']
 
 3. dict.values()获取所有值 > [1,2,3]
@@ -423,8 +356,6 @@ print(dict1)
 
 ### 2. 解决哈希冲突
 
-
-
 > **1. 开放寻址法**
 
 > 1. **py2使用开放寻址法解决冲突**，CPython使用**伪随机探测的散列表**作为字典的底层数据结构。
@@ -433,25 +364,17 @@ print(dict1)
 
 > 3. 开放地址的意思是除了哈希函数得出的地址可用，当出现冲突的时候其他的地址也一样可用，常见的开放地址思想的方法有**线性探测再散列，二次探测再散列等**，这些方法都是在第一选择被占用的情况下的解决方法。
 
-
-
 > **2. 链表法**
 
 > 1. HashMap数组的**每一个元素不仅是一个数组对象，还是一个链表的头节点**。每一个Entry对象通过next指针指向他的下一个Entry节点，**当新来的映射冲突时，只需插入到对应的链表中即可**。
-
-
 
 > **3. 再哈希法**
 
 > 1. 这个方法是按顺序**规定多个哈希函数，每次查询的时候按顺序调用哈希函数，调用到第一个为空的时候返回不存在，调用到此键的时候返回其值**。
 
-
-
 > **4. 公共溢出区**
 
 > 1. 其基本思想是：所有关键字和基本表中关键字为相同哈希值的记录，不管他们由哈希函数得到的哈希地址是什么，一旦发生冲突，都填入溢出表。
-
-
 
 > **5. 装填因子α**
 
@@ -467,22 +390,14 @@ print(dict1)
 
 1. **dict底层维护一张哈希表**，我们可以把哈希表看成一个列表，哈希表中的每一个元素又存储了哈希值（hash）、键（key）、值（value）3个元素
 
-```
-
-enteies = [
-
-​    ['--', '--', '--'],
-
-​    [hash, key, value],
-
-​    ['--', '--', '--'],
-
-​    ['--', '--', '--'],
-
-​    [hash, key, value],
-
-]
-
+```python
+enteies = [ 
+   ['--', '--', '--'],
+   [hash, key, value],
+​   ['--', '--', '--'],
+​   ['--', '--', '--'],
+​   [hash, key, value],
+   ]
 ```
 
 2. 由上可以见哈希表的存储结构，我们也可以看出，元素之间有一些空元素，我们通过增加一个元素来讲解具体实现。
@@ -503,9 +418,7 @@ enteies = [
 
 1. **hash表、加上Indices表(索引表、指数表)来辅助**，其数据结构如下
 
-
-
-```
+```python
 
 indices = [None, None, index, None, index, None, index]
 
@@ -561,77 +474,54 @@ enteies = [
 
 6. 包含的操作如下,**交集&，并集|，差集-，对称差集^**
 
+```python
+>> a = set('abcde')
 
+>> b = set('abcfg')
 
-`a = set('abcde')`
+>> c = a & b
 
-`b = set('abcfg')`
+{'a','b','c'}
 
-`c = a & b`
+>> d = a | b
 
-`{'a','b','c'}`
+{'a','b','c','d','e','f','g'}
 
-`d = a | b`
+# 差集-, a中有，b中没有的
 
-`{'a','b','c','d','e','f','g'}`
+>> e = a-b
+{'d','e'}
 
-`# 差集-, a中有，b中没有的`
+# 对称差集^, 在a中或者b中，但两者中不会同时存在
 
-`e = a-b`
+>> f = a^b
 
-`{'d','e'}`
+{'d','e','f','g'}
 
-`# 对称差集^, 在a中或者b中，但两者中不会同时存在`
+>> g = a.unition(b)
 
-`f = a^b`
-
-`{'d','e','f','g'}`
-
-`g = a.unition(b)`
-
-`{'a','b','c','d','e','f','g'}`
+{'a','b','c','d','e','f','g'}
+```
 
 # 十、文件操作及os模块
 
-1. 
+1. 文件操作
 
-```
-```
-
-01 打开并关闭
-
-# <!--打开一个文件（若不存在则创建）-->
-
+```python
+# 打开并关闭
 f = open('file1.txt', 'w')
-
 f.close()
 
-02 读文件
+# 读文件
 
 f = open("./index.cpp","r")
-
-# <!--读取文件中所有数据-->
-
-[TOC]
-
-contents = f.read()
-
-03 写文件
-
-#打开文件
+# 写文件
 
 f = open("./index.cpp","w")
-
-#1. 写入数据
-
 contents = "hello world!"
-
 f.write(contents)
-
 #关闭文件
-
 f.close()
-
 ```
 
 2. os模块，python用来操作文件或文件夹的
@@ -668,44 +558,28 @@ f.close()
 
 10. **__new(cls,)，在init之前，用于创建类的实例，返回实例化出来的对象，必须有返回值**
 
-```
+```python
+
 
 class Cat(object):
 
 ​    def __init__(self,name):
-
 ​        self.name = name
-
 ​        self.color = 'yellow'
-
-
-
 
 
 class Bosi(Cat):
 
-
-
 ​    def __init__(self,name):
-
 ​        # 调用父类的__init__方法1(python2)
-
 ​        #Cat.__init__(self,name)
-
 ​        # 调用父类的__init__方法2
-
 ​        #super(Bosi,self).__init__(name)
-
 ​        # 调用父类的__init__方法3
-
 ​        super().__init__(name)
 
-
-
 ​    def getName(self):
-
 ​        return self.name
-
 
 
 bosi = Bosi('xiaohua')
@@ -717,73 +591,45 @@ print(bosi.color)
 ```
 
 ## 11.3 super()方法
-
 1. **super()是用于调用父类（超类）的一个方法**
-
 2. **Py3：super().xxx** 
-
 3. **Py2: super(Class, self).xxx** 
 
+```python
 
-
-```
 
 class FooParent(object):
 
 ​    def __init__(self):
-
 ​        self.parent = 'I'm the parent.'
-
 ​        print ('Parent')
 
-​    
-
 ​    def bar(self,message):
-
 ​        print ("%s from Parent" % message)
 
- 
 
 class FooChild(FooParent):
 
 ​    def __init__(self):
-
 ​        # super(FooChild,self) 首先找到 FooChild 的父类（就是类 FooParent），然后把类B的对象 FooChild 转换为类 FooParent 的对象
-
 ​        super(FooChild,self).__init__()    
-
 ​        print ('Child')
 
-​        
 
 ​    def bar(self,message):
-
 ​        super(FooChild, self).bar(message)
-
 ​        print ('Child bar fuction')
-
 ​        print (self.parent)
 
- 
-
 if __name__ ** '__main__':
-
 ​    fooChild = FooChild()
-
 ​    fooChild.bar('HelloWorld')
-
 # 输出
-
 Parent
-
 Child
-
 HelloWorld from Parent
-
 Child bar fuction
-
 I'm the parent.
-
 ```
 
 ## 11.4 类继承顺序（深度优先、广度优先）(mro方法)
@@ -812,36 +658,35 @@ I'm the parent.
 
 - 自 Python 2.3 版本，对新式类采用了 C3 算法。由于 **Python 3.x 仅支持新式类，所以该版本只使用 `C3 算法`**。该方法有点类似于`图的拓扑排序`
 
-```
+```python
 
 class A1:
+   pass
+
 
 class A2:
+   pass
 
 class B1(A1, A2):
+   pass
 
-​    pass
-
-class B2(A1, A2)
-
-​    pass
+class B2(A1, A2):
+   pass
 
 class C(B1, B2):
-
-​    pass
+​   pass
 
 c = C()
 
 c.foo()
 
-# <!--经典类：按照类的顺序纵向找其方法-->
+# 经典类：按照类的顺序纵向找其方法
 
 C类的foo() > B1类的foo() > A1类的foo() > A2 > B2
 
-# <!--新式类：从左到右，横向继承-->
+# 新式类：从左到右，横向继承
 
 C > B1 > B2 > A1 >A2
-
 ```
 
 # 十二、函数（function）与方法（method）的区别

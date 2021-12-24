@@ -13,22 +13,58 @@
   <script>
     window.$docsify = {
       el: '#app',
-      name: 'my_blog',
+      name: "<h4>yalezhang 's blog</h4>",
       // nameLink: 'https://github.com/yalezhangk/zk_blog',
-      repo: 'https://github.com/yalezhangk/zk_blog',
+      repo: 'https://github.com/yalezhangk/blogs',
       // 导航栏
       loadNavbar: true,
       // 左侧目录，默认加载 _sidebar.md
       loadSidebar: true,
-      subMaxLevel: 6,
+      // 文档中目录最大层级
+      subMaxLevel: 2,
       // 封面
       // coverpage: true,
-
-      // 加载 summary.md
-      // loadSidebar: 'summary.md'
+      // 将文档中标题渲染成目录
+      maxLevel: 3,
+      // 主题颜色
+      themeColor: '#3F51B5',
+      // 自动为每个页面增加标题
+      autoHeader: true,
+      // 小屏设备下合并导航栏到侧边栏
+      // mergeNavbar: true,
+      // 显示文档更新日期
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      // 设置缓存
+      requestHeaders: {
+        'cache-control': 'max-age=600',
+      },
+      // 搜索配置
+      search: {
+        // maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto',
+        // 支持本地化
+        placeholder: {
+          '/': '搜索',
+        },
+        // 支持本地化
+        noData: {
+          '/': '找不到结果',
+        },
+        // 搜索标题的最大层级, 1 - 6
+        depth: 6,
+        // 是否隐藏其他侧边栏内容
+        hideOtherSidebarContent: false,
+    },
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
+  <!-- 搜索插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 代码copy插件 -->>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- 主题插件 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/pure.css"> -->
 </body>
 </html>

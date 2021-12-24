@@ -1,19 +1,20 @@
+<!-- gitlab 博客首页配置 -->
 # Welcome to yalezhang 's blog 😎 
 
 [![Build Status](https://app.travis-ci.com/yalezhangk/blog.svg?branch=master)](https://app.travis-ci.com/yalezhangk/blog)
-[![Author](https://img.shields.io/badge/Author-yalezhang-orange.svg)]()
+[![Author](https://img.shields.io/badge/Author-yalezhang-orange.svg)](https://github.com/yalezhangk/blogs)
 [![Python Versions](https://img.shields.io/badge/python-2.x%2C%203.x-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/lyonyang/blogs/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/yalezhangk/blogs)
 **本博客内容持续更新...精彩内容就快出来啦...*
 
 **如需转载, 请注明出处**
 
-如果我的博客对你有帮助 , 那就帮我点个星星吧 🤣 [Star](https://github.com/yalezhangk/blog)
+如果我的博客对你有帮助 , 那就帮我点个星星吧 🤣 [Star](https://github.com/yalezhangk/blogs)
 
 ## 作者  🤣
 
 
-> 个人主页 : [Blog](https://yalezhangk.github.io/blog/)
+> 个人主页 : [Blog](https://yalezhangk.github.io/blogs/)
 
 > GitHub : [https://github.com/yalezhangk](https://github.com/yalezhangk)
 
