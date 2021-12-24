@@ -15,6 +15,7 @@
   * [Redis](Database/Redis/README.md)
     * [Redis基础](Database/Redis/Redis基础.md)
 * [Algorithm](Algorithm/README.md)
+  * [漫画算法](Algorithm/小灰的漫画算法.md)
 * [WebFramework](WebFramework/README.md)
 * [Git](Git/README.md)
   * [Git初级01](Git/Git初级01.md)
