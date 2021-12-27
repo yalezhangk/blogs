@@ -1,6 +1,6 @@
 # Linux
 1. Unix Os
-2. Linux
-3. Mac os
-* [linux](Linux/linux/README.md)
-* [mac_os](Linux/mac_os/README.md)
+2. Linux发行版：centos\redhat\ubuntu
+3. Mac os(Mac os、mac m1 版本)
+* [命令一](Linux/命令一.md)
+* [命令二](Linux/命令二.md)
