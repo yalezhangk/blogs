@@ -135,6 +135,7 @@ SELECT * FROM table_name MATCH(ft_index) AGAINST('查询字符串');
 
 ### 5. Spatial (R-Tree)（空间）索引
 1. 只有MyISAM支持
+
 ## 5 索引未生效的场景
 - **使用了like，且以通配符开头('%abc...')**
 - **加了联合索引，如果where条件中是OR关系，索引不起作用**

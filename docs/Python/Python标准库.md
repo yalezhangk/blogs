@@ -3,8 +3,10 @@
 
 # 一、 random 随机数
 **标准库，只需 import random 即可**
+
 ## 1.1 random.random()
 1. **生成一个0-1之间的随机浮点数**，0 <= n <= 1.0
+
 ##  1.2 random.uniform(a,b)
 1. **生成一个指定范围内的随机浮点数**，必须：a >= b 或a <= b 均可，生成的随机数n: a <= n <=b,或 b <= n <= a
 ```python
@@ -16,12 +18,15 @@ print random.uniform(20, 10)
 
 ## 1.3 random.randint(a,b)
 1. **生成一个指定范围内的整数**，必须 a <= b，结果a <= n <= b
+
 ## 1.4 random.randrange(a, b, step)
 1. **从指定范围内，按指定基数递增的集合中，获取一个随机数，step默认为1**
 2. **random.randrange(1, 10, 2),即从[1, 3, 5,  7, 9]中随机获取一个**
+
 ## 1.5 random.choice(有序类型)
 1. **从有序序列中随机获取一个元素，list/tuple/str 均可**
 2. random.choice('asdf') > asdf中随机的一个
+
 ## 1.6 random.shuffle(list)
 1. **用于将list中的元素打乱**
 ```python
@@ -30,6 +35,7 @@ random.shuffle(alist)
 print p
 # ['a', 200, '1', 'sd']
 ```
+
 ## 1.7 random.sample(有序类型，个数)
 1. **取样，从有序序列中随机获取指定长度的片段，sample不会修改原序列**
 ```python
@@ -41,8 +47,10 @@ print(new_list)
 ```
 
 # 二、os 操作系统
+
 ## 2.1 介绍
 1. **os模块负责程序与操作系统的交互，**提供了访问操作系统底层的接口****。如**文件**系统，**进程**，**操作系统本身的信息**，并屏蔽各种不同操作系统之间的细节差异。
+
 ## 2.2 使用：封装了常见的文件和目录操作
 1. os.remove(path) 删文件
 2. os.unlink(path) 删文件
@@ -50,9 +58,11 @@ print(new_list)
 3. os.environ 环境变量
 
 ## 三、sys 解释器环境
+
 # 3.1 介绍
 1. **sys负责程序与Python解释器的交互，提供了一系列的函数和变量，用于操控Python运行时的环境。**
 2. 如调试类，profiling类，运行时的环境、路径，解释器本身的信息等。
+
 ## 3.2 使用
 1. sys.modules.keys() 返回所有已经导入的模块列表
 2. sys.path 返回模块的搜索路径
@@ -60,6 +70,7 @@ print(new_list)
 
 ## 四、argparse 命令行参数
 1. **argparse是Py自带的命令行参数解析包**
+
 ## 4.1 使用
 - 创建 ArgumentParser() 对象
 - 调用 add_argument() 方法添加参数
@@ -141,6 +152,7 @@ dic.move_to_end('name')
 print(dic) 
 # 结果OrderedDict([('age', 18), ('gender', 'male'), ('name', 'winter')])
 ```
+
 ## 3 defaultdict
 1. 默认字典，为字典的值设置一个默认类型，
 2. 
