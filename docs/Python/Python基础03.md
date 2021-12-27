@@ -127,6 +127,7 @@ __exit__()方法被调用
 # 九、在Python中使用过什么代码检查工具？
 1. **Pylint**:检测代码是否遵循PEP8规范
 2. **flake8， 会检查py36,pep8,isort**
+
 # 十、python高并发压力测试，如何测试的？
 - 1 使用apache服务器中的ab.exe
 - 2 pylot ;基于python的跨平台开源网站压力测试工具
@@ -200,6 +201,7 @@ https://mirrors.aliyun.com/pypi/simple
 https://pypi.douban.com/simple/
 
 # 十七、pdb、remote_pdb
+
 ## 7.1 本机pdb调试
 ### 在源代码处添加pdb
 1. **在调试代码处，设置import pdb;pdb.set_trace()**
@@ -219,9 +221,11 @@ https://pypi.douban.com/simple/
 - b filename:lineno 设置断点
 - b functionname
 - tbreak xx 设置临时断点
+
 ### 非侵入式，命名行调试
 1. 不用额外修改源代码，在命令行下直接运行就能调试）
 2. python3 -m pdb filename.py
+
 ## 7.2 远程调试
 1. 在远程代码处设置
 
@@ -236,8 +240,3 @@ https://pypi.douban.com/simple/
 6. 或者执行**telnet 192.168.103.140 4444**
 
 7. 即可进入pdb模式
-
-**这是加粗的文字**
-*这是倾斜的文字*`
-***这是斜体加粗的文字***
-~~这是加删除线的文字~~
