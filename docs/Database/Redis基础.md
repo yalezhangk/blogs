@@ -210,7 +210,7 @@ redis-cli -h 192.168.210.62 -p 17009 -a cmErx8YISO080eJtel5ZSgyMz5DScuVvb1rjLsgu
 1. **使用SETEX，用法SETEX key seconds value**
 
 ```python
-192.168.210.62:17009> set lock 5 zk_01 # 设置lock建5秒钟，value是zk_01
+192.168.210.62:17009> set lock 5 yalezhang_01 # 设置lock建5秒钟，value是yalezhang_01
 ```
 2. 释放：**分布式锁必须由锁的持有者自己释放，所以我们必须先确保当前释放锁的线程是持有者，没问题了再删除，使用lua脚本**
 2. 

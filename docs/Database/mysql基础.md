@@ -6,9 +6,9 @@
 
 ### 1.1 Python操作连接Mysql数据库格式：mysql://账号:密码@地址:端口/库名
 
-#### mysql://root:mysql@127.0.0.1:3306/zk_test
+#### mysql://root:mysql@127.0.0.1:3306/yalezhang_test
 
-**Mysql 库名不能带中划线，zk-test不可**
+**Mysql 库名不能带中划线，yalezhang-test不可**
 
 #### 1.2 表增加字段
 
@@ -49,7 +49,7 @@ show index from duty;
 #### 1.4 建库、表、插数据
 
 ```mysql
-create database db_zk charset=utf8;  # 建库db_zk
+create database db_yalezhang charset=utf8;  # 建库db_yalezhang
 SET NAMES utf8;  # 设置编码格式
 SET FOREIGN_KEY_CHECKS=0;  # 去除外键关系检查(表操作完后记得修改过来)
 DROP TABLE IF EXISTS `student`;
