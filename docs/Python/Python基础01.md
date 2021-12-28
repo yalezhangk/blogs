@@ -412,26 +412,19 @@ enteies = [
 
 3. 我们可以看到，**不同的key计算的出的index值是不一样的，在enteies中插入的位置不一样，所以当我们遍历字典的时候，字段的顺序与我们插入的顺序是不相同的。**
 
-4. 我们同样可以发现，enteies表是稀疏的，随着我们插入的值不同，enteies表会越来越稀疏（**enteies也是一个会动态扩展长度的，每一此扩展长度，都会重新计算所有key的hash值**），所以新的字典实现就随之出现。
+4. 我们同样可以发现，enteies表是稀疏的，随着我们插入的值不同，enteies表会越来越稀疏（**enteies也是一个会动态扩展长度的，每一次扩展长度，都会重新计算所有key的hash值**），所以新的字典实现就随之出现。
 
 #### 2. py3.7之后的有序dict
 
 1. **hash表、加上Indices表(索引表、指数表)来辅助**，其数据结构如下
 
 ```python
-
 indices = [None, None, index, None, index, None, index]
-
 enteies = [
-
-​    [hash0, key0, value0],
-
-​    [hash1, key1, value1],
-
-​    [hash2, key2, value2]
-
+   [hash0, key0, value0],
+   [hash1, key1, value1],
+   [hash2, key2, value2]
 ]
-
 ```
 
 2. 下面为具体的实现过程：
@@ -621,7 +614,7 @@ class FooChild(FooParent):
 ​        print ('Child bar fuction')
 ​        print (self.parent)
 
-if __name__ ** '__main__':
+if __name__  == '__main__':
 ​    fooChild = FooChild()
 ​    fooChild.bar('HelloWorld')
 # 输出
@@ -656,7 +649,7 @@ I'm the parent.
 
 - 自 Python 2.2 版本开始，新式类在采用深度优先搜索算法的基础上，对其做了优化；违反了`单调性`原则
 
-- 自 Python 2.3 版本，对新式类采用了 C3 算法。由于 **Python 3.x 仅支持新式类，所以该版本只使用 `C3 算法`**。该方法有点类似于`图的拓扑排序`
+- 自 Python 2.3 版本，对新式类采用了 C3 算法。由于*Python 3.x仅支持新式类，所以该版本只使用`C3 算法`*。该方法有点类似于`图的拓扑排序`
 
 ```python
 

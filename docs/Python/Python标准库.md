@@ -57,9 +57,9 @@ print(new_list)
 2. os.rmdir(path) 删目录
 3. os.environ 环境变量
 
-## 三、sys 解释器环境
+# 三、sys 解释器环境
 
-# 3.1 介绍
+## 3.1 介绍
 1. **sys负责程序与Python解释器的交互，提供了一系列的函数和变量，用于操控Python运行时的环境。**
 2. 如调试类，profiling类，运行时的环境、路径，解释器本身的信息等。
 
@@ -71,7 +71,7 @@ print(new_list)
 ## 四、argparse 命令行参数
 1. **argparse是Py自带的命令行参数解析包**
 
-## 4.1 使用
+# 4.1 使用
 - 创建 ArgumentParser() 对象
 - 调用 add_argument() 方法添加参数
 - 使用 parse_args() 解析添加的参数
@@ -104,7 +104,7 @@ def test_argparse():
     print('num: %s, type: %s' % (num, type(num)))
 
 
-if __name__ ** '__main__':
+if __name__  == '__main__':
     test_sys()
     test_argparse()
 # 调用:python arg_parse.py position --size=123 -n 1
@@ -116,6 +116,7 @@ if __name__ ** '__main__':
 # size: 123, type: <type 'int'>
 # num: 1, type: <type 'str'>
 ```
+
 # 五、collections模块（高级数据结构）
 1. 这个模块对Python基本的数据结构做了封装，增加了一些很酷的数据结构，比如：
 
@@ -131,13 +132,14 @@ e）deque :双向队列，队列头尾都可以放，也都可以取（与单向
 ## 1 Counter
 1. 计数器，用于统计对象中每个元素出现的个数
 2. 他是dict的一个子类，
-3. 
+
 ```python
 # 通过字典形式统计每个元素重复的次数传  
 res = collections.Counter('abcdabcaba')  
 print(res)
 # 结果Counter({'a': 4, 'b': 3, 'c': 2, 'd': 1})
 ```
+
 ## 2 OrderDict 有序字典
 ```python
 # 创建一个有序字典
@@ -155,7 +157,6 @@ print(dic)
 
 ## 3 defaultdict
 1. 默认字典，为字典的值设置一个默认类型，
-2. 
 
 ```python
 people = [['male', 'winter'], ['female', 'elly'], ['male', 'frank'], ['female', 'emma']]
@@ -287,7 +288,7 @@ def local2utc( local_dtm ):
     # 本地时间转 UTC 时间（ -8:00 ）
     return datetime.utcfromtimestamp( local_dtm.timestamp() )
 
-if __name__ ** "__main__":
+if __name__ == "__main__":
 
     # utc_tm = datetime.utcnow()
     utc_tm = datetime( 2012, 10, 26, 10, 00, 00 )
