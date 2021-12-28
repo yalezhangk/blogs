@@ -14,8 +14,8 @@
 2. `==` 是比较两个对象的值是否相等（值比较）
 
 ## 2.2 拷贝
-1. 字面上理解：浅拷贝指仅仅拷贝数据集合的第一层数据，深拷贝指拷贝数据集合的所有层**
-2. **对于不可变类型而言（str/int/()），赋值、浅拷贝、深拷贝效果都一样，因为其永远指向同一块内存地址**
+1. 字面上理解：**浅拷贝指仅仅拷贝数据集合的第一层数据，深拷贝指拷贝数据集合的所有层**
+2. **对于不可变类型而言（str/int/tuple），赋值、浅拷贝、深拷贝效果都一样，因为其永远指向同一块内存地址**
 3. **对于可变类型（dict/list/set）,赋值与原数据均指向同一个内存地址，浅拷贝/深拷贝均产生新的对象**
 4. **对嵌套数据，浅拷贝只拷贝最外层数据，而深拷贝则拷贝数据集合的所有层，因此里层数据改变时，深拷贝依然指向最原始的数据，而浅拷贝数据相应改变**
 
@@ -99,7 +99,7 @@ class FibIterator(object):
     def __iter__(self):
         """迭代器的__iter__返回⾃身即可"""
         return self
-if __name__ ** '__main__':
+if __name__  == '__main__':
     fib = FibIterator(5)
     for num in fib:
         print(num, end=" ")
@@ -172,9 +172,12 @@ print(next(f))
 
 ```python
 import time
+from functools import wraps
 def timefun(func):
+
+    @wraps(func)
     def wrappedfunc(*args, **kwargs):
-        print("%s called at %s"%(func.__name__, ctime()))
+        print("%s called at %s"%(func.__name__, time.ctime()))
         result = func(*args, **kwargs)
         return result
     return wrappedfunc
@@ -190,10 +193,16 @@ foo(3,5,7)
 3. 带参数的装饰器
 
 ```python
+import time
+from functools import wraps
+
 def timefun_arg(pre="hello"):
+
     def timefun(func):
+
+        @wraps(func)
         def wrappedfunc():
-            print("%s called at %s %s"%(func.__name__, ctime(), pre))
+            print("%s called at %s %s"%(func.__name__, time.ctime(), pre))
             return func()
         return wrappedfunc
     return timefun
@@ -214,25 +223,25 @@ foo()
 
 ```python
 @wraps(fun)
-    def wra_begin(self, *args, **kwargs):
-        # 函数调用前的装饰器，其他操作
-        self.action_id = ‘参数’  # 将此参数注入到fun()函数中，被装饰的函数fun（）就可以直接使用了 
-        return fun(self, *args, **kwargs)
+def wra_begin(self, *args, **kwargs):
+    # 函数调用前的装饰器，其他操作
+    self.action_id = ‘参数’  # 将此参数注入到fun()函数中，被装饰的函数fun（）就可以直接使用了 
+    return fun(self, *args, **kwargs)
 ```
 2. **函数执行后的装饰器**，**在fun（)函数中，设置一些变量**，**之后内函数，就可也以直接使用**了
 
 ```python
- @wraps(fun)
-    def wra_end(self, *args, **kwargs):
-        result = fun(self, *args, **kwargs)
-        # 函数调用后的装饰器
-        id = self.resource_id # self.resource_id 是fun()函数注入进去的，后面可以直接使用
-        pass
+@wraps(fun)
+def wra_end(self, *args, **kwargs):
+    result = fun(self, *args, **kwargs)
+    # 函数调用后的装饰器
+    id = self.resource_id # self.resource_id 是fun()函数注入进去的，后面可以直接使用
+    pass
 ```
 
 # 七、python是动态语言
-1. 可以动态添加属性、方法，可以使用
-**__slots__ 变量，来限制当前实例**只能添加的属性，只能添加name和age2个属性
+1. 可以动态添加属性、方法，可以使用**\_\_slots\_\_ 变量，来限制当前实例**只能添加的属性，只能添加name和age2个属性
+
 ```python
 class Person(object):
     __slots__ = ("name", "age")
@@ -391,7 +400,7 @@ for (x,y) in zip(l1,l2):
 3. 用这几个方法，可以做拦截器、动态代理等
 
 ## 4、\_\_repr\_\_、\_\_str\_\_
-1. **改变实例对象的输出或显示方式__repo__**,与__str__方法效果一样.
+1. **改变实例对象的输出或显示方式__repr__**,与__str__方法效果一样.
 2. 自定义__repr__() 和__str__() 通常是很好的习惯，因为它能简化调试和实例输出。
 3. 如果__str__() 没有被定义，那么就会使用__repr__() 来代替输出。
 
@@ -402,6 +411,7 @@ def __repr__(self):
 
 ## 5、\_\_call\_\_方法
 1. **\_\_call\_\_()的作用是使实例对象能够像函数一样被调用**
+2. 实例化出来对象，即：*实例名()就是调用call（）方法*
 
 ## 6. \_\_getitem\_\_
 1. 这个方法**返回所给键对应的值, 当实例对象做p[key]** 运算时，会调用类中的方法**__getitem__**

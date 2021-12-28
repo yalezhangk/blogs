@@ -28,6 +28,7 @@ for i in range(3):
 
 # 四、函数运行效率 （cProfile模块）
 **Python的7种性能测试工具：timeit、profile、cProfile、line_profiler、memory_profiler、PyCharm图形化性能测试工具、objgraph**
+
 ```python
 # 测试函数运行时间效率
 import cProfile, random
@@ -36,15 +37,13 @@ def funtest(alist):
     sort_list = sorted(alist)
     return sort_list
 
-if __name__ ** '__main__':
+if __name__ == '__main__':
     alist = [random.random() for i in range(10000)]
     funtest(alist)
     cProfile.run('funtest(alist)')
 # 结果
-         5 function calls in 0.002 seconds
-
-   Ordered by: standard name
-
+5 function calls in 0.002 seconds
+Ordered by: standard name
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
         1    0.000    0.000    0.002    0.002 <string>:1(<module>)
         1    0.000    0.000    0.002    0.002 class_03.py:4(funtest)
@@ -55,11 +54,13 @@ if __name__ ** '__main__':
 
 # 五、py3中dict有哪些变化（与py2比）
 1. 支持字典解析表达式zip
+
 ```python
 >>> d = {k:v for (k,v) in zip(['a','b','c'],[1,2,3])}
 >>> d
 {'a': 1, 'c': 3, 'b': 2}
 ```
+
 2. 字典的一些方法，比如dict.key()、dict.values()、dict.items()操作方法，**在python 3.0中返回的不再是列表**，而是dict_keys对象，dict_values对象，dict_items对象
 3. 取消has_key方法
 4. 字典比较大小不再有效，在python 3.0中不同于2.6的用<、>来比较字典相对大小，而是用sorted(d1.items())<sorted(d2.items())方法手动比较排序后的键列表来操作。
@@ -71,6 +72,7 @@ if __name__ ** '__main__':
 # 七、查看一个类的继承顺序(mro)
 1. py3: **类.mro()方法即可，返回类继承顺序list**
 2. py2: Class.\__mro__(),返回类的继承顺序
+
 ```python
 class A(object):
     def get(self):
@@ -93,7 +95,8 @@ C
 [<class '__main__.C'>, <class '__main__.B'>, <class '__main__.A'>, <class 'object'>]
 ```
 
-# 八、with语句、\_enter__、__exit__方法
+# 八、with上下文、\_\_enter__、__exit__方法
+
 ## 1、with语句工作原理
 1. 有一些任务，可能事先需要设置，事后做清理工作。对于这种场景，Python的with语句提供了一种非常方便的处理方式。一个很好的例子是文件处理，你需要获取一个文件句柄，从文件中读取数据，然后关闭文件句柄。
 2. 基本思想是with所求值的对象必须有一个__enter__()方法，一个__exit__()方法。
@@ -157,6 +160,7 @@ __exit__()方法被调用
 1. 有GIL并不意味着python一定是线程安全的，要分情况的。
 2. GIL虽然从设计的出发点就是考虑到线程安全，但这种线程安全**是粗粒度的线程安全**，即不需要程序员自己对线程进行加锁处理（同理，所谓细粒度就是指程序员需要自行加、解锁来保证线程安全，典型代表是 Java , 而 CPthon 中是粗粒度的锁，即语言层面本身维护着一个全局的锁机制,用来保证线程安全）
 3. **dis模块用来分析某个函数的字节码执行过程**，**针对原子级的操作，由于方法本身是单个字节码，所以线程没有办法在调用期间放弃GIL，所以他是线程安全的**。原子操作如：sorted()、list.sort()
+
 ```python
 import dis
 n = 0
@@ -164,18 +168,17 @@ def add():
     global n
     n = n + 1
 print(dis.dis(add))
-
 def sub():
     global n
     n = n - 1
 print(dis.dis(sub))
 ```
-4. dis结果分析：
-![image](https://note.youdao.com/yws/res/26451/AC86EFEBB1C547959A5561AABEED60FC)
+4. dis结果分析：n = n+1 这种等量赋值不是原子操作
 
 ## 3. 避免GIL的影响
 1. **IO密集型，多线程或者协程适合；CPU密集型，推荐多进程+协程的方式。**
 2. **python下想要充分利用多核CPU，就用多进程，原因是：每个进程有各自独立的GIL，互不干扰**
+
 ## 4. CPython、PyPy
 1. **CPython、PyPy、JPython等是各个解释器**
 1. CPython是最流行的Python实现
@@ -184,6 +187,7 @@ print(dis.dis(sub))
 4. **PyPI**(Python Package Index)**是python官方的第三方库的仓库**
 
 # 十四、pipenv,Python包管理工具
+1. pass
 
 # 十五、python 中的序列
 1. 序列是python中的一种数据结构，可根据索引来获取序列中的对象
@@ -195,14 +199,13 @@ print(dis.dis(sub))
 3. [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 4. pip install -i 临时源路径 包名  临时换源
-#### 阿里pip源
-https://mirrors.aliyun.com/pypi/simple
-#### 豆瓣源
-https://pypi.douban.com/simple/
+5. *阿里pip源*: [https://mirrors.aliyun.com/pypi/simple]
+6. *豆瓣源*: [https://pypi.douban.com/simple/]
 
 # 十七、pdb、remote_pdb
 
 ## 7.1 本机pdb调试
+
 ### 在源代码处添加pdb
 1. **在调试代码处，设置import pdb;pdb.set_trace()**
 2. 接口跑到此处时，会进入pdb调试模式
