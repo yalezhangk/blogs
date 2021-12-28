@@ -177,11 +177,11 @@ print(s1)
 
 
 ```python
->> name = '张可'
+>> name = 'yalezhang'
 
 >> print('He is {}'.format(name))
 
-He is 张可
+He is yalezhang
 # 格式化数字
 >> print("{:.2f}".format(3.1415926));
 
@@ -189,13 +189,13 @@ He is 张可
 
 # f/F表达式
 
->> name = '张可'
+>> name = 'yalezhang'
 
 >> age = 12
 
 >> a = f'He is {name}, age is {age}'
 
-He is 张可, age is 12
+He is yalezhang, age is 12
 ```
 
 # 六、列表 list
@@ -318,11 +318,11 @@ d = {key: value for (key, value) in dict.items()}**
 更新dict1(dict2中的元素更新到dict1中)，以dict2为准**
 
 ```python
-dict1 = {'name': 'zk', 'age': 18}
-dict2 = {'name': 'zk', 'age': 19}
+dict1 = {'name': 'yalezhang', 'age': 18}
+dict2 = {'name': 'yalezhang', 'age': 19}
 dict1.update(dict2)
 print(dict1)
-# {'name': 'zk', 'age': 19}
+# {'name': 'yalezhang', 'age': 19}
 ```
 2. dict.keys()获取所有键 > ['a', 'b', 'c']
 

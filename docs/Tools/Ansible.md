@@ -19,7 +19,7 @@
 ```shell
 # /etc/ansible/hosts 配置文件
 192.168.103.162  ##不分组直接声明IP
-[zk]  ##申明了受管机的列表和分类名
+[yalezhang]  ##申明了受管机的列表和分类名
 192.168.18.111  # 直接声明IP
 120 ansible_ssh_host=192.168.18.120  ##定义别名和IP
 160 ansible_ssh_host=192.168.103.160  ##定义别名和IP
@@ -27,7 +27,7 @@
 
 ## 2.1 ansible 命令语法
 1. Usage: ansible <host-pattern> [options]
-2. ansible 192.168.18.120 -m command -a "touch 'zkzk.py'"   --> 在120机器上创建一个zkzk.py文件
+2. ansible 192.168.18.120 -m command -a "touch 'yalezhangyalezhang.py'"   --> 在120机器上创建一个yalezhangyalezhang.py文件
 
 # 三、modules模块
 1. 查看ansible的所有模块：**ansible-doc -l**

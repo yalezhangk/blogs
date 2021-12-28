@@ -52,18 +52,18 @@ d =  [1, 2, 3, 4, ['a', 'b']]
 from copy import copy
 from copy import deepcopy
 
-zk = [1, {1: 'a'}]
-zk01 = copy(zk)
-zk02 = deepcopy(zk)
-zk[0] = 2
-zk[1][1] = 'b'
+yalezhang = [1, {1: 'a'}]
+yalezhang01 = copy(yalezhang)
+yalezhang02 = deepcopy(yalezhang)
+yalezhang[0] = 2
+yalezhang[1][1] = 'b'
 
-print(zk, zk01, zk02)
-# zk
+print(yalezhang, yalezhang01, yalezhang02)
+# yalezhang
 # [2, {1: 'b'}]  原始数据改变
-# zk01
+# yalezhang01
 # [1, {1: 'b'}]  浅拷贝只拷贝最外层数据，原数据改变，里层数据相应改变
-# zk02
+# yalezhang02
 # [1, {1: 'a'}]  深拷贝，永远指向最原始的数据
 ```
 

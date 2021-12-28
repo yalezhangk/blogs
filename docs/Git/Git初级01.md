@@ -18,8 +18,8 @@
 
 # 2 一个仓库本地开发流程
 
-1. **git clone 命令** 默认会拉取远端仓库中所有分支及代码
-2. **git remote add 自定义仓库名 URL地址**，只是会添加仓库地址，还需执行git fetch 仓库名， 才会拉取所有分支及代码 
+1.**git clone 命令** 默认会拉取远端仓库中所有分支及代码
+**git remote add 自定义仓库名 URL地址**，只是会添加仓库地址，还需执行git fetch 仓库名， 才会拉取所有分支及代码 
 1. git clone url地址 自定义库名（如：111)
 2. cd到111
 3. git branch -a 查看远端所有分支及本地分支
@@ -37,16 +37,16 @@ origin https://github.com/schacon/ticgit (push)
 origin 是第一次克隆时默认的仓库名，可以改名
 ```
 
-2. git remote add zk http://gitlab.cntv.com/zhangke/whoisOnDuty.git (fetch)
-添加远程仓库并命名为zk,以后zk就代表远端的仓库了
-3. git fetch zk 刷新本地仓库（拉取远端的所有分支及代码）
+2. git remote add yalezhang http://gitlab.cntv.com/yalezhang/whoisOnDuty.git (fetch)
+添加远程仓库并命名为yalezhang,以后yalezhang就代表远端的仓库了
+3. git fetch yalezhang 刷新本地仓库（拉取远端的所有分支及代码）
 4. git remote -v
 
 ```shell
 origin  http://gitlab.cntv.com/chenchen/whoisOnDuty.git (fetch)
 origin  http://gitlab.cntv.com/chenchen/whoisOnDuty.git (push)
-zk      http://gitlab.cntv.com/zhangke/whoisOnDuty.git (fetch)
-zk      http://gitlab.cntv.com/zhangke/whoisOnDuty.git (push)
+yalezhang      http://gitlab.cntv.com/yalezhang/whoisOnDuty.git (fetch)
+yalezhang      http://gitlab.cntv.com/yalezhang/whoisOnDuty.git (push)
 ```
 
 5. git branch -a 显示本地及远程的所有分支
@@ -58,14 +58,14 @@ zk      http://gitlab.cntv.com/zhangke/whoisOnDuty.git (push)
   remotes/origin/HEAD -> origin/master
   remotes/origin/develop
   remotes/origin/master
-  remotes/zk/develop
-  remotes/zk/master
+  remotes/yalezhang/develop
+  remotes/yalezhang/master
 ```
 6. 以后就可以随意拉取任意仓库中的代码了
-7. 如在仓库一的本地dev_dev分支，可以拉取zk仓库中的develop分支，合并提交到任意仓库
+7. 如在仓库一的本地dev_dev分支，可以拉取yalezhang仓库中的develop分支，合并提交到任意仓库
 
 ```shell
-git pull zk develop
+git pull yalezhang develop
 ```
 6. git push origin 本地分支名:远端分支名
 >将本地分支，推送到远端指定分支
@@ -100,9 +100,9 @@ git pull zk develop
 
 # 6 merge pull request 合并不同的仓库代码
 ## （两个仓库为派生关系才能如此合并）
-1. 在本地“张可/whoisonduty”develop分支上， pull “陈辰/whoisonduty”develop，解决冲突（张可/whoisonduty派生自陈辰/whoisonduty）。
-2. 上步结果push回"张可/whoisonduty"develop分支。
-3. 在gitlab "张可/whoisonduty" 上请求管理员把自己仓库上的分支合并到主仓库分支上（不会有冲突，因为合并冲突步骤上一步已解决）
+1. 在本地“yalezhang/whoisonduty”develop分支上， pull “陈辰/whoisonduty”develop，解决冲突（yalezhang/whoisonduty派生自陈辰/whoisonduty）。
+2. 上步结果push回"yalezhang/whoisonduty"develop分支。
+3. 在gitlab "yalezhang/whoisonduty" 上请求管理员把自己仓库上的分支合并到主仓库分支上（不会有冲突，因为合并冲突步骤上一步已解决）
 4. 这样只在页面上即可将派生的仓库代码合并到主仓库中
 
 # 7 git archive 打包代码

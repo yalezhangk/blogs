@@ -156,7 +156,7 @@ EOF
 3. 更新：rpm –Uvh  foo-2.0-1.i386.rpm
 3. 列出安装目录：**rpm -ql httpd.rpm**　　**＃[搜索rpm包]--list所有文件安装目录**
 4. **卸载：rpm -e ceph-mgr-dspace-2.4.0-1.gd2d7b4e.x86_64**
-5. 只下载，不安装rpm包：**yum install --downloadonly --downloaddir=/root/zk/ pack_name**
+5. 只下载，不安装rpm包：**yum install --downloadonly --downloaddir=/root/yalezhang/ pack_name**
 6. **rpm -qR** ceph-mgr-dspace-2.4.0-19.g8d3af1a.noarch.rpm  **查看包的依赖**
 
 ## 3、rpm打包
