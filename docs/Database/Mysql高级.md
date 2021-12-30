@@ -24,42 +24,42 @@
 ### 3.1 主键索引
 1. 即主索引，根据主键建立索引，不允许重复，不允许空值。
 
-```mysql
+```sql
 ALTER TABLE 'table_name' ADD PRIMARY KEY pk_index('col');
 ```
 
 ### 3.2 唯一索引
 1. 用来建立索引的列的值必须是唯一的，允许空值
 
-```mysql
+```sql
 ALTER TABLE 'table_name' ADD UNIQUE index_name('col');
 ```
 
 ### 3.3 普通索引
 1. 用表中的普通列构建的索引，没有任何限制。
 
-```mysql
+```sql
 ALTER TABLE 'table_name' ADD INDEX index_name('col');
 ```
 
 ### 3.4 全文索引
 1. 用大文本对象的列构建的索引
 
-```mysql
+```sql
 ALTER TABLE 'table_name' ADD FULLTEXT INDEX ft_index('col');
 ```
 
 ### 3.5 组合索引
 1. 用**多个列组合构建**的索引，这**多个列中的值不允许有空值**
 
-```mysql
+```sql
 ALTER TABLE 'table_name' ADD INDEX index_name('col1','col2','col3')；
 ```
 
 2. 遵循**最左前缀原则，把最常用作检索或排序的列放在最左，依次递减**，组合索引相当于建立了col1,col1col2,col1col2col3三个索引，而col2或者col3是不能使用索引的。
 3. *在使用组合索引的时候可能因为列名长度过长而导致索引的key太大，导致效率降低，在允许的情况下，可以只取col1和col2的前几个字符作为索引*
 
-```mysql
+```sql
 # 表示使用col1的前4个字符和col2的前3个字符作为索引
 ALTER TABLE 'table_name' ADD INDEX index_name(col1(4),col2（3))；
 ```
@@ -67,7 +67,7 @@ ALTER TABLE 'table_name' ADD INDEX index_name(col1(4),col2（3))；
 ## 4 索引的实现原理
 1. **explain + 查询语句**: **用于模拟优化器执行SQL查询语句，分析查询语句或是表结构的性能瓶颈，包括表执行顺序，索引是否使用，表之间的引用等**
 
-```mysql
+```sql
 //explain 加查询语句
 explain SELECT * FROM table_name WHERE column_1='123';
 ```
@@ -82,7 +82,7 @@ MySql支持多种存储引擎，各种存储引擎对索引的支持也各不相
 1. 全文(fulltext)索引，仅可用于MyISAM和InnoDB，针对较大的数据，生成全文索引非常的消耗时间和空间。
 2. 全文索引的查询也有自己特殊的语法，而不能使用LIKE %查询字符串%的模糊查询语法
 
-```mysql
+```sql
 SELECT * FROM table_name MATCH(ft_index) AGAINST('查询字符串');
 ```
 
@@ -157,7 +157,7 @@ SELECT * FROM `tbl_shopmall_product_template` WHERE  productName = 1        扫�
 ## 1. 介绍
 1. 查看当前数据库支持的存储引擎
 
-```mysql
+```sql
 show engines;
 ```
 
@@ -200,7 +200,7 @@ show engines;
 6. **检测工具jsky，竭思；网站，亿思网**
 7. **sql语句参数化,全部使⽤%s占位**
 
-```mysql
+```sql
 # sql注入， #号是注释，#后面的代码不会执行
 username = ''or 1=1#
 select * from users where username='' or 1=1#' and password=md5('')
@@ -251,7 +251,7 @@ mysql> DELIMITER ;
 9. **设置变量set,用户变量名一般以@开头**
 10. 查询
 
-```mysql
+```sql
 # 调用
 mysql > SET @p_in=1;  
 mysql > CALL demo_in_parameter(@p_in);
@@ -282,7 +282,7 @@ mysql > show create procedure 数据库名.存储过程名
 # 六、视图
 1. 对复杂查询的封装，定义视图，建议以v_开头
 
-```mysql
+```sql
 # 创建视图v_stu_score，查询学生对应的成绩信息
 create view v_stu_score as
 select students.*,scores.score from scores
@@ -415,7 +415,7 @@ inner join students on scores.stuid=students.id;
 #### 3.1 通过set命令
 1.
 
-```mysql
+```sql
 SET [GLOBAL|SESSION] TRANSACTION ISOLATION LEVEL level;
 其中level有4种值：
 level: {
@@ -428,14 +428,14 @@ level: {
 
 2. 关键词：GLOBAL
 
-```mysql
+```sql
 SET GLOBAL TRANSACTION ISOLATION LEVEL level;
 * 只对执行完该语句之后产生的会话起作用
 * 当前已经存在的会话无效
 ```
 3. 关键词：SESSION
 
-```mysql
+```sql
 SET SESSION TRANSACTION ISOLATION LEVEL level;
 * 对当前会话的所有后续的事务有效
 * 该语句可以在已经开启的事务中间执行，但不会影响当前正在执行的事务
@@ -443,7 +443,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL level;
 ```
 4. 无关键词
 
-```mysql
+```sql
 SET TRANSACTION ISOLATION LEVEL level;
 * 只对当前会话中下一个即将开启的事务有效
 * 下一个事务执行完后，后续事务将恢复到之前的隔离级别
@@ -476,26 +476,26 @@ SET TRANSACTION ISOLATION LEVEL level;
 **配置主数据库**
 1. 主库my.conf配置添加：
 
-```shell
+```bash
 server-id=1   #主数据库的id
 log-bin=master-bin   #日志路径，作用是从数据库是根据这个日志来复制主数据库的数据的
 ```
 2. 停止mariadb服务：systemctl stop mariadb.service
 3. mariadb授权远程用户(slaveuser为用户名和密码)
 
-```mysql
+```sql
 1. grant replication slave on *.* to 'slaveuser'@'127.0.0.1' identified by 'slaveuser';
 2. flush privileges;
 ```
 4. 重启mariadb服务:
 
-```shell
+```bash
 systemctl restart mariadb.service
 ```
 **配置从数据库**
 1. 修改从库的my.conf配置
 
-```shell
+```bash
 server-id=2   #这个id必须不能和主数据库相同
 read-only=on  #设置该数据库是只读状态
 relay-log=relay-bin  #日志
@@ -503,7 +503,7 @@ relay-log=relay-bin  #日志
 2. 重启mariadb服务
 3. 进入从服务器的数据库：master_host为主服务器
 
-```mysql
+```sql
 change master to master_host='127.0.0.1',master_user='slaveuser',master_password='slaveuser', master_log_file='master-bin.000005',master_log_pos=882;
 ```
 4. 启动slave同步
@@ -513,7 +513,7 @@ START SLAVE;
 ```
 5. 在从库上查看salave状态：
 
-```mysql
+```sql
 show slave status\G
 ```
 6. 看**Slave_IO_Running和Slave_SQL_Running**是都为yes
@@ -522,7 +522,7 @@ show slave status\G
 ## 2. Django项目配置读写分离
 1. 首先django配置文件settings配置slave从库信息
 
-```shell
+```bash
 DATABASES = {
 	'default': {
     	'ENGINE': 'django.db.backends.mysql',
@@ -600,7 +600,7 @@ DATABASE_ROUTERS = ['itme_name.utils.db_router.MysqlDBRouter']  # 指定你的�
 ## 2. 使用
 1. 创建触发器
 
-```mysql
+```sql
 CREATE
     [DEFINER = { user | CURRENT_USER }]
 TRIGGER trigger_name
@@ -620,7 +620,7 @@ trigger_order: { FOLLOWS | PRECEDES } other_trigger_name
 4. trigger_order是MySQL5.7之后的一个功能，用于定义多个触发器，使用follows(尾随)或precedes(在…之先)来选择触发器执行的先后顺序。 
 5. **创建有多个执行语句的触发器**
 
-```mysql
+```sql
 CREATE TRIGGER 触发器名 BEFORE|AFTER 触发事件
 
 ON 表名 FOR EACH ROW

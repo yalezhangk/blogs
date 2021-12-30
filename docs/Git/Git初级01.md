@@ -31,7 +31,7 @@
 # 3 git remote 仓库管理
 1. git remote -v 查看远端所有仓库
 
-```shell
+```bash
 origin https://github.com/schacon/ticgit (fetch)
 origin https://github.com/schacon/ticgit (push)
 origin 是第一次克隆时默认的仓库名，可以改名
@@ -42,7 +42,7 @@ origin 是第一次克隆时默认的仓库名，可以改名
 3. git fetch yalezhang 刷新本地仓库（拉取远端的所有分支及代码）
 4. git remote -v
 
-```shell
+```bash
 origin  http://gitlab.cntv.com/chenchen/whoisOnDuty.git (fetch)
 origin  http://gitlab.cntv.com/chenchen/whoisOnDuty.git (push)
 yalezhang      http://gitlab.cntv.com/yalezhang/whoisOnDuty.git (fetch)
@@ -51,7 +51,7 @@ yalezhang      http://gitlab.cntv.com/yalezhang/whoisOnDuty.git (push)
 
 5. git branch -a 显示本地及远程的所有分支
 
-```shell
+```bash
   dev_dev
   develop
   master
@@ -64,7 +64,7 @@ yalezhang      http://gitlab.cntv.com/yalezhang/whoisOnDuty.git (push)
 6. 以后就可以随意拉取任意仓库中的代码了
 7. 如在仓库一的本地dev_dev分支，可以拉取yalezhang仓库中的develop分支，合并提交到任意仓库
 
-```shell
+```bash
 git pull yalezhang develop
 ```
 6. git push origin 本地分支名:远端分支名
@@ -108,7 +108,7 @@ git pull yalezhang develop
 # 7 git archive 打包代码
 1. git archive 打包文件代码命令
 
-```shell
+```bash
 git archive [--format = <fmt>] [--list] [--prefix = <prefix> /] [<extra>]
 	      [-o <file> | --output = <file>] [ -  worktree-attributes]
 	      [--remote = <repo> [--exec = <git-upload-archive>]] <tree-ish>
@@ -117,7 +117,7 @@ git archive [--format = <fmt>] [--list] [--prefix = <prefix> /] [<extra>]
 
 2. git archive --list 》 最后可打包成的文件格式后缀
 
-```shell
+```bash
 tar
 tgz
 tar.gz
@@ -126,7 +126,7 @@ zip
 
 3. git archive --format=格式 --prefix=文件夹前缀 --output test_file.zip 分支名
 
-```shell
+```bash
 # 打包develop分支上最新的代码，开始文件夹为whoisOnDuty
 git archive --format=zip --prefix=whoisOnDuty/ --output whoisOnDuty_develop_0515ff76.zip develop
 ```

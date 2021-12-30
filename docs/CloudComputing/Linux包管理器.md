@@ -15,7 +15,7 @@
 5. 列出所有可安裝的软件清单：yum list
 6. 清除缓存: yum clean all
 
-```shell
+```bash
 运行以下命令生成缓存:
 yum clean all
 yum makecache
@@ -45,7 +45,7 @@ yum makecache
 1. linux:
 2. 修改 ~/.pip/pip.conf (没有就创建一个)， 内容如下：（清华源）
 
-```shell
+```bash
 # /etc/pip.conf
 [global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 ```
@@ -68,7 +68,7 @@ https://mirrors.aliyun.com/pypi/simple
 3. -w16为启动16个进程
 4. -b :10012 端口号
 
-```shell
+```bash
 tee /usr/lib/systemd/system/pypiserver.service <<-'EOF'
 [Unit]
 Description=gunicorn daemon
@@ -106,7 +106,7 @@ EOF
 ## 1.5 配置nginx做反向代理
 1. nginx 负责提供文件下载服务，nginx监听10087端口
 
-```shell
+```bash
 tee /etc/nginx/conf.d/pypi.conf <<-'EOF'
 upstream pypiserver {
   server 127.0.0.1:10012;

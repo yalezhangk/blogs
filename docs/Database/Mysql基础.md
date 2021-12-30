@@ -12,7 +12,7 @@
 
 #### 1.2 表增加字段
 
-```mysql
+```sql
 # duty表增加俩字段（不为空，有默认值, 加索引）
 ALTER TABLE `duty` ADD COLUMN `depart_name` VARCHAR(64) NOT NULL DEFAULT 'UnKnow';
 ALTER TABLE `duty` ADD INDEX `depart_name` (depart_name);
@@ -28,7 +28,7 @@ show index from duty;
 1. 为了防止转移\，
 **\在SQL = 语句和like语句中，分别用2个\ 和4个\ 替换，方可生效**。
 
-```shell
+```bash
 # SQL库中存在的数据：央视影音事业群\央视影音开发运营中心
 # 实际SQL操作：select * from duty where depart_name = '央视影音事业群\\央视影音开发运营中心';
 # like语句：select * from duty where depart_name like '%央视影音事业群\\\\央视影音开发运营中心%';
@@ -51,7 +51,7 @@ show index from duty;
 
 #### 1.4 建库、表、插数据
 
-```mysql
+```sql
 create database db_yalezhang charset=utf8;  # 建库db_yalezhang
 SET NAMES utf8;  # 设置编码格式
 SET FOREIGN_KEY_CHECKS=0;  # 去除外键关系检查(表操作完后记得修改过来)
@@ -82,7 +82,7 @@ if(isnull(number),0,ty)  # 字段为空时
 1. update 表名 set 列1=值1,列2=值2... where 条件;
 2. **批量更新数据：update table set 更新字段 = case 依据字段 when 条件 then 更新值 end where 条件；**
 
-```mysql
+```sql
 # 更新duty表：若role:四线值班 》 则role_name:LEVEL4
 UPDATE duty
 SET role_name = CASE role
@@ -116,7 +116,7 @@ WHERE role IN ('四线值班','三线值班','2.5线值班','二线值班','一�
 14. **select \* from `t_clog` order by rand() limit 10; 随机获取10条数据**
 15. *完整的查询如下*
 
-```mysql
+```sql
 select distinct *
 from 表名
 where ....
@@ -147,13 +147,13 @@ order by id desc; 查询未删除男生信息，按学号降序
 4. **where在分组之前过滤数据，where条件中不能包含聚组函数。**
 5. **having在分组后过滤数据，条件中经常包含聚组函数**
 
-```mysql
+```sql
 1. where 子句的作用：在对查询结果进行分组前，把不符合where条件的行去掉，即在分组之前过滤数据。另外，where条件中不能包含聚组函数。
 2. having 子句的作用：筛选满足条件的组，即在分组后过滤数据，条件中经常包含聚组函数，使用 having 条件过滤出特定的组
 ```
 
 
-```mysql
+```sql
 # 查询：平均成绩大于60分的同学的学号和平均成绩；
 # 思路：根据学生分组，使用avg获取平均值，通过having对avg进行筛选
 select student_id,avg(num) from score group by student_id having avg(num) > 60;
@@ -164,7 +164,7 @@ select student_id,avg(num) from score group by student_id having avg(num) > 60;
 **start索引从0开始，而id是从1开始的**
 3. **所以，获取第10-12条数据，应该是limit9,3**
 
-```mysql
+```sql
 例1，假设数据库表student存在13条数据。
 代码示例:
 语句1：select * from student limit 9,4
@@ -183,7 +183,7 @@ inner或left或right join 表2 on 表1.列=表2.列**
 2. **自关联，表中的某一列，关联了这个表中的另外一列，但是它们的业务逻
 辑含义是不一样的，城市信息的pid引用的是省信息的id**
 
-```mysql
+```sql
 定义表areas，结构如下
 id
 atitle
@@ -220,7 +220,7 @@ where province.atitle='河南省';
 5. **导入数据：mysql -u用户名 -p密码 数据库名 < 数据库名.sql**
 6. 导入导出数据
 
-```shell
+```bash
 # 导出数据到sql文件
 mysqldump -uroot -p密码 数据库名 > sql文件
 # 导入数据
@@ -255,7 +255,7 @@ mysql -uroot -p密码 -P端口 -hIP -D数据库名 < sql文件
 # 四、mysql配置文件
 1. mysql命令默认加载的配置文件：**\~/.my.cnf、 /etc/mysql/my.cnf、/etc/my.cnf**
 
-```shell
+```bash
 # /root/.my.cnf
 [client]
 host = 192.168.210.68

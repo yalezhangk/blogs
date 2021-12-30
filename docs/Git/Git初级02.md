@@ -38,7 +38,7 @@
 3. 这时分两种情况。一种情况是，你需要另一个分支的所有代码变动，那么就采用合并（git merge）。
 4. 另一种情况是，你只需要**部分代码变动（某几个提交），这时可以采用 Cherry pick。**
 
-```shell
+```bash
 # 切换到 master 分支
 $ git checkout master
 # Cherry pick 操作(将其他分支的f_commit)应用到当前master分支

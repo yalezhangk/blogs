@@ -78,7 +78,7 @@ r.keys("foo*")
 1. 增加，修改 set key value；
 获取 get key；删除 del key；批量设置 mset({k1:value1,k2:value2})
 
-```shell
+```bash
 incr key  -> 自增数字,每次加一，常用于计数器
 
 ```
@@ -105,7 +105,7 @@ r.hlen("hash1"))
 
 5. 删除 hdel(name1, k1)
 
-```shell
+```bash
 HINCRBY key field increment
 # 为哈希表 key 中的域 field 的值加上增量 increment 。
 # 增量也可以为负数，相当于对给定域进行减法操作。
