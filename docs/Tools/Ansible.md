@@ -16,7 +16,7 @@
 2. 宿主机对受管机的免密登录
 3. 配置完公钥之后记得把受管机的IP信息记录**到/etc/ansible/hosts**文件中
 
-```shell
+```bash
 # /etc/ansible/hosts 配置文件
 192.168.103.162  ##不分组直接声明IP
 [yalezhang]  ##申明了受管机的列表和分类名
@@ -95,7 +95,7 @@
 1. 除了加密整个剧本外，ansible-vault还使你能够仅加密变量。
 2. 要加密剧本示例中变量my_secret的值，命令将是：
 
-```shell
+```bash
 # 将变量‘my_secret’加密，在剧本文件中替换为加密后的值
 $ ansible-vault encrypt_string 'P@ssword123' --name 'my_secret'
 # 运行剧本时，会显示设置的值‘P@ssword123’

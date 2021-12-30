@@ -35,7 +35,7 @@
 1. 按照访问的 **URL 的 hash 结果分配请求**，每个请求的 URL 会指向后端固定的某个服务器，可以在 **Nginx 作为静态服务器的情况下提高缓存效率。**
 2. 同样要注意 Nginx 默认不支持这种调度算法，要使用的话需要安装 Nginx 的 hash 软件包
 
-```shell
+```bash
 upstream tomcatserver1 {  
     server 192.168.72.49:8080 weight=3;  
     server 192.168.72.49:8081;  
@@ -78,7 +78,7 @@ upstream tomcatserver1 {
 # 五、Nginx处理压缩？
 1. 开启nginx **gzip压缩**后，图片、css、js等静态资源的大小会减小，可节省带宽，提高传输效率，但是会消耗CPU资源。
 
-```shell
+```bash
 # 开启gzip
 gzip on;
 # 启用gzip压缩的最小文件，小于设置值的文件将不会压缩
