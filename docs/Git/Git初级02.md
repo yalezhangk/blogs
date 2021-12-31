@@ -1,10 +1,10 @@
 # Git初级02
 
 # 1、git merge 合并分支
-1. **<mast> $: git merge dev  ->  将dev分支合并到当前分支mast上**
+1. **\<master\> $: git merge dev  ->  将dev分支合并到当前分支master上**
 
 # 2、git rebase 变基
-1. **<dev> $: git rebase master -> 将当前分支dev提交复制到master分支上**
+1. **\<dev\> $: git rebase master -> 将当前分支dev提交合并到master分支上**
 2. git rebase 会将当前分支的提交复制到指定的分支之上。
 3. 在我们正在 rebase 的提交上，我们可以执行以下 6 个动作：
 - reword：修改提交信息；
