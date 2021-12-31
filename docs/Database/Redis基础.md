@@ -126,13 +126,15 @@ r.lpush("list1", 11, 22, 33)
 r.rpush("list2", 44, 55, 66)
 # 输出结果为
 # 44，55，66
+```
+
+3. linsert(name, where, refvalue, value))， 固定索引号位置插入元素
 
 ```python
-3. linsert(name, where, refvalue, value))， 固定索引号位置插入元素
-```
 r.linsert("list2", "before", "11", "00")   # 往列表中左边第一个出现的元素"11"前插入元素"00"
 print(r.lrange("list2", 0, -1))   # 切片取出值，范围是索引号0-最后一个元素
 ```
+
 4. **修改， r.lset**(name, index, value)，指定索引号进行修改
 
 ```python
@@ -198,12 +200,13 @@ r.zrem("zset3", "n3")   # 删除有序集合中的元素n3 删除单个
 #### 4.1 redis-cli
 1. **redis-cli -h 192.168.210.61 -p 17009 -a aaaaaa**   -> 进入redis客户端
 
-```
+```bash
 # 进入redis_client
 redis-cli -h 192.168.210.62 -p 17009 -a cmErx8YISO080eJtel5ZSgyMz5DScuVvb1rjLsgu
 192.168.210.62:17009> info  # 查看信息
 192.168.210.62:17009> KEYS * # 列出所有的key
 192.168.210.62:17009> select 0 # 切换到0号库上
+redis-cli -c -p 6371  # -c 连接集群
 ```
 
 # 五、redis分布式锁
@@ -251,7 +254,7 @@ redis-cli -h 192.168.210.62 -p 17009 -a cmErx8YISO080eJtel5ZSgyMz5DScuVvb1rjLsgu
 ### 4.1 主观下线和客观下线
 1. 默认情况下，每个 Sentinel 节点会以 每秒一次 的频率对 Redis 节点和 其它 的 Sentinel 节点发送 PING 命令，并通过节点的 回复 来判断节点是否在线。
 2. **主观下线适用于所有 主节点 和 从节点**。如果在 down-after-milliseconds 毫秒内，Sentinel 没有收到 目标节点 的有效回复，则会判定 该节点 为 主观下线
-3. **客观下线 只适用于 主节点**。如果 主节点 出现故障，Sentinel 节点会通过 sentinel is-master-down-by-addr 命令，向其它 Sentinel 节点询问对该节点的 状态判断。如果超过 <quorum> 个数的节点判定 主节点 不可达，则**该 Sentinel 节点会判断 主节点 为 客观下线**。
+3. **客观下线 只适用于 主节点**。如果 主节点 出现故障，Sentinel 节点会通过 sentinel is-master-down-by-addr 命令，向其它 Sentinel 节点询问对该节点的 状态判断。如果超过 `设定的某个数` 的节点判定 主节点 不可达，则**该 Sentinel 节点会判断 主节点 为 客观下线**。
 
 ### 4.2 Redis Sentinel的工作原理
 1. **每个 Sentinel 节点都需要 定期执行 以下任务**：

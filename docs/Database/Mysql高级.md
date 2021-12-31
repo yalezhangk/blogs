@@ -232,7 +232,7 @@ params = [sname]
 [特性 ...] 过程体
 
 
-``` mysql
+```sql
 mysql> DELIMITER //  
 mysql> CREATE PROCEDURE proc1(OUT s int)  
     -> BEGIN 
