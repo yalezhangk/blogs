@@ -7,6 +7,8 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- 暗黑模式 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css">
 </head>
 <body>
   <div id="app"></div>
@@ -55,7 +57,39 @@
         depth: 6,
         // 是否隐藏其他侧边栏内容
         hideOtherSidebarContent: false,
-    },
+      },
+      //字数统计
+      count: {
+        countable: true,
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese'
+      },
+      // 下方的分页
+      pagination: {
+          previousText: '上一章节',
+          nextText: '下一章节',
+          // 父目录
+          crossChapter: true,
+          // 兄弟目录
+          crossChapterText: false,
+      },
+      // 暗黑模式
+      darklightTheme: {
+        defaultTheme: 'light',
+        siteFont: 'Source Sans Pro,Helvetica Neue,Arial,sans-serif',
+        codeFontFamily: 'Roboto Mono, Monaco, courier, monospace',
+        bodyFontSize: '15px',
+        dark: {
+          background: 'rgb(28,32,34)',
+          highlightColor: '#e96900',
+          codeBackgroundColor: 'rgb(34,39,46)',
+          codeTextColor: '#b4b4b4',
+        },
+        light: {
+          highlightColor: '#e96900',
+        }
+      }
     }
   </script>
   <!-- Docsify v4 -->
@@ -67,7 +101,13 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <!-- 主题插件 -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/pure.css"> -->
-  <!-- 代码高亮插件，暂未生效 -->
+  <!-- 分页 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!--暗黑模式-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
+  <!-- 代码高亮插件-->
   <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-sql.min.js"></script>
