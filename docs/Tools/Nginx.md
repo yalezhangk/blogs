@@ -7,7 +7,7 @@
 
 # 二、使用
 1. **nginx常用于反向代理、负载均衡、HTTP缓存**。
-2. **将服务器接收到的请求按照规则分发的过程，称为负载均衡。**，分为：**硬件负载均衡和软件负载**均衡两种
+2. **将服务器接收到的请求按照规则分发的过程，称为负载均衡**，分为：*硬件负载*均衡和*软件负载*均衡两种
 3. 硬负载成本高，软负载成本低，**软件负载均衡是利用现有的技术结合主机硬件实现的一种消息队列分发机制。**
 
 ## 1. Nginx支持的负载均衡调度算法
@@ -73,7 +73,7 @@ upstream tomcatserver1 {
 ## 3. 详细过程
 1. Nginx 在启动后，会有一个 master 进程和多个相互独立的 worker 进程。 2、master 接收来自外界的信号，先建立好需要 listen 的 socket（listenfd） 之后，然后再 fork 出多个 worker 进程，然后向各worker进程发送信号，每个进程都有可能来处理这个连接。 3、所有 worker 进程的 listenfd 会在新连接到来时变得可读 ，为保证只有一个进程处理该连接，所有 worker 进程在注册 listenfd 读事件前抢占 accept_mutex ，抢到互斥锁的那个进程注册 listenfd 读事件 ，在读事件里调用 accept 接受该连接。 4、当一个 worker 进程在 accept 这个连接之后，就开始读取请求、解析请求、处理请求，产生数据后，再返回给客户端 ，最后才断开连接。
 
-# 五、Nginx处理压缩？
+# 五、Nginx处理压缩
 1. 开启nginx **gzip压缩**后，图片、css、js等静态资源的大小会减小，可节省带宽，提高传输效率，但是会消耗CPU资源。
 
 ```bash
@@ -87,7 +87,7 @@ gzip_comp_level 1;
 gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/vnd.ms-fontobject font/ttf font/opentype font/x-woff image/svg+xml;
 ```
 
-# 六、Nginx和Apache、Tomcat之间的不同点？
+# 六、Nginx和Apache、Tomcat之间的不同点
 1. nginx和apache只是web服务器，可以简单理解为只能提供html静态文件服务；tomcat可以对jsp进行解析
 2. Nginx和Apache区别：
 - Nginx轻量级，同样起web 服务，比apache占用更少的内存及资源 。
@@ -95,10 +95,13 @@ gzip_types text/plain application/javascript application/x-javascript text/css a
 - Nginx提供负载均衡，可以做做反向代理，前端服务器
 - **Nginx多进程单线程，异步非阻塞；Apache多进程同步，阻塞**。
 
-# 七、Nginx动静态资源分离做过吗，为什么要这样做？
+# 七、Nginx动静态资源如何分离
 1. 动态资源、静态资源分离，是让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来。
 2. 比如说 js、css、html从A服务器返回。图片 从B服务器返回，其他请求从Tomcat服务器C返回。
 3. 后台应用分开部署，提高用户访问静态代码的速度。而且现在还有CDN服务，不需要限制于服务器的带宽。
 
 # 八、Nginx解决跨域
 1. Nginx解决跨域问题通过**Nginx反向代理将对真实服务器的请求转移到本机服务器**来避免浏览器的"同源策略限制"。
+
+# 九、Nginx配置文件详解
+1. pass
