@@ -1,6 +1,3 @@
-
-# Python标准库
-
 # 一、 random 随机数
 **标准库，只需 import random 即可**
 

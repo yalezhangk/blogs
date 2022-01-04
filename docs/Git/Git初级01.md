@@ -1,5 +1,3 @@
-# Git初级01
-
 # 1 Git 通识
 1. git clone url地址 》 克隆一个项目 
 2. git clone url地址 库名  》克隆自定义仓库名

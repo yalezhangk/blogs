@@ -1,5 +1,3 @@
-# Python基础03
-
 # 一、Python整数输出问题，1输出为01或001
 **S.zfill(width) -> string**
 ```python

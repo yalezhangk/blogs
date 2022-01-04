@@ -1,5 +1,3 @@
-# Openstack中的网络
-
 # 一、network
 
 1. network: 网络，是一个隔离的二层广播域。Neutron 支持多种类型的 network，包括 local, flat, VLAN, VxLAN 和 GRE。

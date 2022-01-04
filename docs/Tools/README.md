@@ -1,4 +1,3 @@
-# Tools
 1. Ansible
 2. Nginx
 3. Rabbitmq
