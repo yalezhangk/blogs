@@ -1,5 +1,3 @@
-# Git初级02
-
 # 1、git merge 合并分支
 1. **\<master\> $: git merge dev  ->  将dev分支合并到当前分支master上**
 

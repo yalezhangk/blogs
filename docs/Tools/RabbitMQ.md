@@ -1,5 +1,3 @@
-# RabbitMQ
-
 # 一、常见的消息队列(MQ)及应用场景？
 - 主要的消息队列有：**RabbitMQ、Kafka、ZeroMQ，Redis也可以**
 - **异步处理，应用解耦，流量削锋和消息通讯**

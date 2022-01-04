@@ -1,4 +1,3 @@
-# Database
 1. 关系型数据库：Mysql 
 2. 非关系型数据库：Redis、Mongodb
 * [Mysql基础](Database/Mysql基础.md)
