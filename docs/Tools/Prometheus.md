@@ -2,7 +2,7 @@
 1. 开源的监控告警解决方案。时间序列数据库。
 
 # 二、各个组件
-![Prometheus架构图](https://note.youdao.com/yws/res/24522/7FD57747F3CB445FA09F3B0D02F438A5)
+![Prometheus架构图](pictures/prometheus架构图.png)
 - Prometheus Server：用于抓取和存储时间序列化数据
 - Exporters：主动拉取数据的插件
 - Pushgateway：被动拉取数据的插件

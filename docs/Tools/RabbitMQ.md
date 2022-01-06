@@ -50,12 +50,12 @@
 - Consumer： 消息消费者，就是接受消息的程序
 - Channel： 消息通道，在客户端的每个连接里，可建立多个channel，每个channel代表一个会话任务
 1. **由Exchange、Queue、RoutingKey三个才能决定一个从Exchange到Queue的唯一的线路。**
-1. 原理图
-2. ![image](https://note.youdao.com/yws/res/25439/83F3D4E1E3684571AD221B0FB922C069)
-3. ![image](https://note.youdao.com/yws/res/25445/A84B5EC3E17D4ACE83BCC28B115C4865)
-4. fanout广播类型，常用于发布/订阅模式
-5. topic主题类型，带通配符的绑定，#代表0个或多个单词，*代表一个单词。
-6. direct直连类型，即完全匹配，单播的模式。
+2. 原理图
+![原理图](pictures/rabbitmq原理图.png)
+![消息类型](pictures/rabbitmq消息类型.png)
+3. fanout广播类型，常用于发布/订阅模式
+4. topic主题类型，带通配符的绑定，#代表0个或多个单词，*代表一个单词。
+5. direct直连类型，即完全匹配，单播的模式。
 
 # 四、介绍
 1. RabbitMQ是开源的**消息代理中间件**，消息队列主要解决**异步处理、应用解耦、流量削峰、消息通讯**。
