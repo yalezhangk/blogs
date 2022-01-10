@@ -32,6 +32,7 @@
 * [Computer](Computer/README.md)
   * [基础知识](Computer/基础知识.md)
   * [Linux包管理器](Computer/Linux包管理器.md)
+  * [Openstack](Computer/Openstack.md)
 * [Network](Network/README.md)
   * [网络基础](Network/网络基础.md)
   * [Openstack中的网络](Network/Openstack中的网络.md)
