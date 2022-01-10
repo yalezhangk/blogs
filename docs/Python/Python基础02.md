@@ -237,6 +237,66 @@ def wra_end(self, *args, **kwargs):
     pass
 ```
 
+## 6.3 单例模式
+1. 单例模式是指让一个类只能创建出唯一的实例，new方法、装饰器和元类这三种方式来实现单例模式。
+
+```python
+
+# 1. 装饰器实现
+from functools import wraps
+
+def singleton(cls):
+    """单例类装饰器"""
+    instances = {}
+    @wraps(cls)
+    def wrapper(*args, **kwargs):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kwargs)
+        return instances[cls]
+    return wrapper
+
+@singleton
+class President:
+    pass
+
+# 2. 重写new方法
+class A(object):
+    _instance = None
+    def __new__(cls， *args， **kwargs):
+        if cls._instance is None:
+            cls._instance = super(A, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+
+# 3. 自定义元类实现
+class SingletonMeta(type):
+    """自定义单例元类"""
+
+    def __init__(cls, *args, **kwargs):
+        cls.__instance = None
+        super().__init__(*args, **kwargs)
+
+    def __call__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            cls.__instance = super().__call__(*args, **kwargs)
+        return cls.__instance
+
+
+class President(metaclass=SingletonMeta):
+    pass
+
+# 4. import方法
+# 1. 作为python的模块是天然的单例模式
+# mysingleton.py
+class My_Singleton(object):
+    def foo(self):
+        pass
+my_singleton = My_Singleton()
+
+# to use
+from mysingleton import my_singleton
+my_singleton.foo()
+```
+
 # 七、python是动态语言
 1. 可以动态添加属性、方法，可以使用**\_\_slots\_\_ 变量，来限制当前实例**只能添加的属性，只能添加name和age2个属性
 
