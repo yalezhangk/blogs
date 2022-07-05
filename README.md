@@ -1,5 +1,5 @@
 <!-- gitlab 博客首页配置 -->
-# Welcome to yalezhang 's blog 😎 
+# Welcome to yalezhang 's blog 😎
 
 [![Build Status](https://app.travis-ci.com/yalezhangk/blog.svg?branch=master)](https://app.travis-ci.com/yalezhangk/blog)
 [![Author](https://img.shields.io/badge/Author-yalezhang-orange.svg)](https://github.com/yalezhangk/blogs)
@@ -13,12 +13,22 @@
 
 ## 作者  🤣
 
-
 > 个人主页 : [Blog](https://yalezhangk.github.io/blogs/)
 
 > GitHub : [https://github.com/yalezhangk](https://github.com/yalezhangk)
 
 > email : [yalezhang.china@gmail.com](yalezhang.china@gmail.com)
+
+- 👋 Hi, I’m @yalezhangk
+- 👀 I’m interested in code、badminton
+- 🌱 I’m currently learning Golang
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+
+<!---
+yalezhangk/yalezhangk is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
 
 
 ## 感谢  🍀
