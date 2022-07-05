@@ -13,16 +13,9 @@
 
 ## 作者  🤣
 
-> 个人主页 : [Blog](https://yalezhangk.github.io/blogs/)
-
-> GitHub : [https://github.com/yalezhangk](https://github.com/yalezhangk)
-
-> email : [yalezhang.china@gmail.com](yalezhang.china@gmail.com)
-
 - 👋 Hi, I’m @yalezhangk
 - 👀 I’m interested in code、badminton
 - 🌱 I’m currently learning Golang
-- 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
 
 <!---
@@ -31,11 +24,12 @@ You can click the Preview link to take a look at your changes.
 --->
 
 
-## 感谢  🍀
+> 个人主页 : [Blog](https://yalezhangk.github.io/blogs/)
 
-感谢以下老哥们提供的宝贵意见与指正, 一起进步
+> GitHub : [https://github.com/yalezhangk](https://github.com/yalezhangk)
 
->  lyonyang: [https://lyonyang.github.io/blogs/](https://lyonyang.github.io/blog/)
+> email : [yalezhang.china@gmail.com](yalezhang.china@gmail.com)
+
 
 
 ## 博客向导  🍀
